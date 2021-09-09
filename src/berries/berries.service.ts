@@ -6,9 +6,9 @@ import { AxiosResponse } from 'axios';
 
 @Injectable()
 export class BerriesService {
-  constructor(private pokeApiService: PokeApiService) {}
+  constructor(private pokeApiClient: PokeApiService) {}
 
   berries(): Promise<Observable<AxiosResponse<PokeApiResponse>>> {
-    return this.pokeApiService.get('berry');
+    return this.pokeApiClient.get('berry');
   }
 }

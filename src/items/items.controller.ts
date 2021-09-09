@@ -1,9 +1,15 @@
 import { Controller, Get } from '@nestjs/common';
+import { AxiosResponse } from 'axios';
+import { Observable } from 'rxjs';
+import { PokeApiResponse } from 'src/poke_api/poke_api.interface';
+import { ItemsService } from './items.service';
 
 @Controller('items')
 export class ItemsController {
+  constructor(private itemsService: ItemsService) {}
+
   @Get()
-  items(): string {
-    return 'Heya!, items is working in progress';
+  items(): Promise<Observable<AxiosResponse<PokeApiResponse>>> {
+    return this.itemsService.items();
   }
 }
