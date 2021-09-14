@@ -8,7 +8,8 @@ import { AxiosResponse } from 'axios';
 export class BerriesService {
   constructor(private pokeApiClient: PokeApiService) {}
 
-  berries(): Promise<Observable<AxiosResponse<PokeApiResponse>>> {
-    return this.pokeApiClient.get('berry');
+  berries(name?: string): Promise<Observable<AxiosResponse<PokeApiResponse>>> {
+    const url = name ? `berry/${name}` : 'berry';
+    return this.pokeApiClient.get(url);
   }
 }

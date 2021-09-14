@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { AxiosResponse } from 'axios';
 import { Observable } from 'rxjs';
 import { PokeApiResponse } from 'src/poke_api/poke_api.interface';
@@ -9,7 +9,8 @@ export class BerriesController {
   constructor(private readonly berriesService: BerriesService) {}
 
   @Get()
-  berries(): Promise<Observable<AxiosResponse<PokeApiResponse>>> {
-    return this.berriesService.berries();
+  berries(@Query() query): Promise<Observable<AxiosResponse<PokeApiResponse>>> {
+    const nameParam = query.name;
+    return this.berriesService.berries(nameParam);
   }
 }
