@@ -136,6 +136,59 @@ This API returns list of berries
 
 ```
 
+For pagination just pass limit and offset params as query parameters
+
+```
+// curl "localhost:3000/berries?limit=10&offset=10"
+{
+  "count": 64,
+  "next": "https://pokeapi.co/api/v2/berry?offset=20&limit=10",
+  "previous": "https://pokeapi.co/api/v2/berry?offset=0&limit=10",
+  "results": [
+    {
+      "name": "figy",
+      "url": "https://pokeapi.co/api/v2/berry/11/"
+    },
+    {
+      "name": "wiki",
+      "url": "https://pokeapi.co/api/v2/berry/12/"
+    },
+    {
+      "name": "mago",
+      "url": "https://pokeapi.co/api/v2/berry/13/"
+    },
+    {
+      "name": "aguav",
+      "url": "https://pokeapi.co/api/v2/berry/14/"
+    },
+    {
+      "name": "iapapa",
+      "url": "https://pokeapi.co/api/v2/berry/15/"
+    },
+    {
+      "name": "razz",
+      "url": "https://pokeapi.co/api/v2/berry/16/"
+    },
+    {
+      "name": "bluk",
+      "url": "https://pokeapi.co/api/v2/berry/17/"
+    },
+    {
+      "name": "nanab",
+      "url": "https://pokeapi.co/api/v2/berry/18/"
+    },
+    {
+      "name": "wepear",
+      "url": "https://pokeapi.co/api/v2/berry/19/"
+    },
+    {
+      "name": "pinap",
+      "url": "https://pokeapi.co/api/v2/berry/20/"
+    }
+  ]
+}
+```
+
 ### Specific Berry Detail
 
 This endpoint returns details for specific berry

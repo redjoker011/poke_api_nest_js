@@ -4,3 +4,8 @@ export interface PokeApiResponse<T> {
   previous: string | null;
   results: T[];
 }
+
+export interface PokeApiQueryParam {
+  offset?: number;
+  limit?: number;
+}

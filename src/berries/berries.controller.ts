@@ -14,7 +14,8 @@ export class BerriesController {
   berries(
     @Query() query,
   ): Promise<Observable<AxiosResponse<PokeApiResponse<GenericResult>>>> {
-    return this.berriesService.berries();
+    // Pass query parameters on berries()
+    return this.berriesService.berries(query);
   }
 
   @Get(':name')
