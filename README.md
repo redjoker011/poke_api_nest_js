@@ -1,30 +1,8 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
-
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Poke API built with Nest JS
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Rest API for Poke API built with Nest JS
 
 ## Installation
 
@@ -56,6 +34,173 @@ $ npm run test:e2e
 
 # test coverage
 $ npm run test:cov
+```
+
+## Available API's
+
+- / // Return Pokemon List
+
+### Berries
+
+This API returns list of berries
+
+```
+// curl localhost:3000/berries
+{
+  "count": 64,
+  "next": "https://pokeapi.co/api/v2/berry?offset=20&limit=20",
+  "previous": null,
+  "results": [
+    {
+      "name": "cheri",
+      "url": "https://pokeapi.co/api/v2/berry/1/"
+    },
+    {
+      "name": "chesto",
+      "url": "https://pokeapi.co/api/v2/berry/2/"
+    },
+    {
+      "name": "pecha",
+      "url": "https://pokeapi.co/api/v2/berry/3/"
+    },
+    {
+      "name": "rawst",
+      "url": "https://pokeapi.co/api/v2/berry/4/"
+    },
+    {
+      "name": "aspear",
+      "url": "https://pokeapi.co/api/v2/berry/5/"
+    },
+    {
+      "name": "leppa",
+      "url": "https://pokeapi.co/api/v2/berry/6/"
+    },
+    {
+      "name": "oran",
+      "url": "https://pokeapi.co/api/v2/berry/7/"
+    },
+    {
+      "name": "persim",
+      "url": "https://pokeapi.co/api/v2/berry/8/"
+    },
+    {
+      "name": "lum",
+      "url": "https://pokeapi.co/api/v2/berry/9/"
+    },
+    {
+      "name": "sitrus",
+      "url": "https://pokeapi.co/api/v2/berry/10/"
+    },
+    {
+      "name": "figy",
+      "url": "https://pokeapi.co/api/v2/berry/11/"
+    },
+    {
+      "name": "wiki",
+      "url": "https://pokeapi.co/api/v2/berry/12/"
+    },
+    {
+      "name": "mago",
+      "url": "https://pokeapi.co/api/v2/berry/13/"
+    },
+    {
+      "name": "aguav",
+      "url": "https://pokeapi.co/api/v2/berry/14/"
+    },
+    {
+      "name": "iapapa",
+      "url": "https://pokeapi.co/api/v2/berry/15/"
+    },
+    {
+      "name": "razz",
+      "url": "https://pokeapi.co/api/v2/berry/16/"
+    },
+    {
+      "name": "bluk",
+      "url": "https://pokeapi.co/api/v2/berry/17/"
+    },
+    {
+      "name": "nanab",
+      "url": "https://pokeapi.co/api/v2/berry/18/"
+    },
+    {
+      "name": "wepear",
+      "url": "https://pokeapi.co/api/v2/berry/19/"
+    },
+    {
+      "name": "pinap",
+      "url": "https://pokeapi.co/api/v2/berry/20/"
+    }
+  ]
+}
+
+```
+
+### Specific Berry Detail
+
+This endpoint returns details for specific berry
+
+```
+curl "localhost:3000/berries/bluk"
+{
+  "firmness": {
+    "name": "soft",
+    "url": "https://pokeapi.co/api/v2/berry-firmness/2/"
+  },
+  "flavors": [
+    {
+      "flavor": {
+        "name": "spicy",
+        "url": "https://pokeapi.co/api/v2/berry-flavor/1/"
+      },
+      "potency": 0
+    },
+    {
+      "flavor": {
+        "name": "dry",
+        "url": "https://pokeapi.co/api/v2/berry-flavor/2/"
+      },
+      "potency": 10
+    },
+    {
+      "flavor": {
+        "name": "sweet",
+        "url": "https://pokeapi.co/api/v2/berry-flavor/3/"
+      },
+      "potency": 10
+    },
+    {
+      "flavor": {
+        "name": "bitter",
+        "url": "https://pokeapi.co/api/v2/berry-flavor/4/"
+      },
+      "potency": 0
+    },
+    {
+      "flavor": {
+        "name": "sour",
+        "url": "https://pokeapi.co/api/v2/berry-flavor/5/"
+      },
+      "potency": 0
+    }
+  ],
+  "growth_time": 2,
+  "id": 17,
+  "item": {
+    "name": "bluk-berry",
+    "url": "https://pokeapi.co/api/v2/item/142/"
+  },
+  "max_harvest": 10,
+  "name": "bluk",
+  "natural_gift_power": 70,
+  "natural_gift_type": {
+    "name": "fire",
+    "url": "https://pokeapi.co/api/v2/type/10/"
+  },
+  "size": 108,
+  "smoothness": 20,
+  "soil_dryness": 35
+}
 ```
 
 ## Support

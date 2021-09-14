@@ -1,9 +1,10 @@
-import { Controller, Get, Query } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
 import { AxiosResponse } from 'axios';
 import { Observable } from 'rxjs';
 import { GenericResult } from 'src/poke_api/generic_result.interface';
 import { PokeApiResponse } from 'src/poke_api/poke_api.interface';
 import { BerriesService } from './berries.service';
+import { BerryDetail } from './berry.interface';
 
 @Controller('berries')
 export class BerriesController {
@@ -13,7 +14,13 @@ export class BerriesController {
   berries(
     @Query() query,
   ): Promise<Observable<AxiosResponse<PokeApiResponse<GenericResult>>>> {
-    const nameParam = query.name;
-    return this.berriesService.berries(nameParam);
+    return this.berriesService.berries();
+  }
+
+  @Get(':name')
+  berry(
+    @Param('name') name: string,
+  ): Promise<Observable<AxiosResponse<PokeApiResponse<BerryDetail>>>> {
+    return this.berriesService.berry(name);
   }
 }

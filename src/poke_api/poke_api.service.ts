@@ -2,9 +2,7 @@ import { HttpService } from '@nestjs/axios';
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { AxiosResponse } from 'axios';
 import { Observable } from 'rxjs';
-import { GenericResult } from './generic_result.interface';
 import { BASE_URL } from './poke_api.constants';
-import { PokeApiResponse } from './poke_api.interface';
 
 @Injectable()
 export class PokeApiService {
@@ -14,9 +12,7 @@ export class PokeApiService {
     return this.httpService.get(`${BASE_URL}/${resource}`);
   }
 
-  async get(
-    resource: string,
-  ): Promise<Observable<AxiosResponse<PokeApiResponse<GenericResult>>>> {
+  async get(resource: string): Promise<Observable<AxiosResponse<any>>> {
     try {
       const req = await this.request(resource).toPromise();
       return req.data;
