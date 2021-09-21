@@ -1,7 +1,4 @@
-export interface GenericPayload {
-  name: string;
-  url: string;
-}
+import { GenericPayload } from 'src/interfaces/generic.interface';
 
 export interface BerryFlavor {
   flavor: GenericPayload;

@@ -8,6 +8,7 @@ import {
 } from 'src/poke_api/poke_api.interface';
 import { PokeApiService } from 'src/poke_api/poke_api.service';
 import { QueryParamService } from 'src/query_params/query_params.service';
+import { ItemDetail } from './items.interface';
 
 @Injectable()
 export class ItemsService {
@@ -25,5 +26,12 @@ export class ItemsService {
       return this.pokeApiClient.get('item?' + query);
     }
     return this.pokeApiClient.get('item');
+  }
+
+  item(
+    name: string,
+  ): Promise<Observable<AxiosResponse<PokeApiResponse<ItemDetail>>>> {
+    const url = `item/${name}`;
+    return this.pokeApiClient.get(url);
   }
 }
