@@ -8,19 +8,19 @@ import { Observable } from 'rxjs';
 import { AxiosResponse } from 'axios';
 import { GenericResult } from 'src/poke_api/generic_result.interface';
 import { BerryDetail } from './berry.interface';
+import { QueryParamService } from 'src/query_params/query_params.service';
 
 @Injectable()
 export class BerriesService {
-  constructor(private pokeApiClient: PokeApiService) {}
+  constructor(
+    private pokeApiClient: PokeApiService,
+    private queryParamBuilder: QueryParamService,
+  ) {}
 
   berries(
     params: PokeApiQueryParam,
   ): Promise<Observable<AxiosResponse<PokeApiResponse<GenericResult>>>> {
-    // Build Query Parameters
-    const esc = encodeURIComponent;
-    const query = Object.keys(params)
-      .map((k) => esc(k) + '=' + esc(params[k]))
-      .join('&');
+    const query = this.queryParamBuilder.build(params);
 
     if (!!query) {
       return this.pokeApiClient.get('berry?' + query);
