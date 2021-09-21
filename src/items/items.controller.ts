@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { AxiosResponse } from 'axios';
 import { Observable } from 'rxjs';
 import { GenericResult } from 'src/poke_api/generic_result.interface';
@@ -10,7 +10,9 @@ export class ItemsController {
   constructor(private itemsService: ItemsService) {}
 
   @Get()
-  items(): Promise<Observable<AxiosResponse<PokeApiResponse<GenericResult>>>> {
-    return this.itemsService.items();
+  items(
+    @Query() query,
+  ): Promise<Observable<AxiosResponse<PokeApiResponse<GenericResult>>>> {
+    return this.itemsService.items(query);
   }
 }
